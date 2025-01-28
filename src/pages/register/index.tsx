@@ -1,6 +1,6 @@
 import { Button, Center, Flex, Input, Text } from "@chakra-ui/react";
 import Head from "next/head";
-import logoImg from "../../../public/logo.svg"
+import logoImg from "../../../public/barberhub.png"
 import Image from "next/image";
 import Link from "next/link";
 import { useContext, useState } from "react";
@@ -38,7 +38,7 @@ export default function Register() {
               alt="logo do site"
               quality={100}
               objectFit="fill"
-              width={240}
+              width={400}
             />
           </Center>
 
