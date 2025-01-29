@@ -7,7 +7,7 @@ import Link from "next/link";
 import { BsCalendar2Date } from "react-icons/bs";
 import { PiScissorsLight } from "react-icons/pi";
 import { LiaUsersCogSolid } from "react-icons/lia";
-import TestimonialsCarousel from "@/components/Caroussel";
+import TestimonialsCarousel from "@/components/Carousel";
 
 export default function Home() {
   return (
