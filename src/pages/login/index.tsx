@@ -67,7 +67,7 @@ export default function Login() {
             mb={6}
             color="gray.300"
             size="lg"
-            _hover={{ bg: "#0353a4" }}
+            _hover={{ bg: "button.hover" }}
             onClick={handleLoguin}
           >
             Acessar
@@ -75,7 +75,7 @@ export default function Login() {
 
           <Center mt={2}>
             <Link href="/register">
-              <Text>Ainda não possue uma conta? <strong style={{ color: "#0466c8" }}>Cadastre-se</strong></Text>
+              <Text>Ainda não possue uma conta? <strong style={{ color: "#C6A05B" }}>Cadastre-se</strong></Text>
             </Link>
           </Center>
 

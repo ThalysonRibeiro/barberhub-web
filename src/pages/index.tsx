@@ -1,7 +1,5 @@
-import { Box, Button, Center, Flex, Heading, Text } from "@chakra-ui/react";
+import { Button, Center, Flex, Heading, Text } from "@chakra-ui/react";
 import logoImg from "../../public/barberhub.png"
-import joao from "../../public/joao.jpeg"
-import ana from "../../public/ana.jpeg"
 import Head from "next/head";
 import Image from "next/image";
 import { Header } from "@/components/Header";
@@ -9,6 +7,7 @@ import Link from "next/link";
 import { BsCalendar2Date } from "react-icons/bs";
 import { PiScissorsLight } from "react-icons/pi";
 import { LiaUsersCogSolid } from "react-icons/lia";
+import TestimonialsCarousel from "@/components/Caroussel";
 
 export default function Home() {
   return (
@@ -92,45 +91,11 @@ export default function Home() {
 
         </Flex>
 
-        <Flex maxW="1280px" w="100%" gap={6} h="400px" mt={6} direction="column" alignItems="center">
-          <Heading color="dourado.900" fontSize="3xl">
-            O que Nossos Clientes Dizem
-          </Heading>
-
-          <Flex w="900px" gap={6}>
-            <Flex direction="column" flex={1} bg="barberHub.300" rounded="md" h="250px" justify="center" p={6}>
-              <Box rounded="full" mb={4}>
-                <Image
-                  src={joao}
-                  alt="logo do site"
-                  quality={100}
-                  objectFit="fill"
-                  style={{ borderRadius: '50%', width: '80px', height: '80px' }}
-                />
-              </Box>
-              <Text>&quot; Excelente ferramenta para minha barbearia! &quot;</Text>
-              <Text>- João S.</Text>
-            </Flex>
-            <Flex direction="column" flex={1} bg="barberHub.300" rounded="md" h="250px" justify="center" p={6}>
-              <Box rounded="full" mb={4}>
-                <Image
-                  src={ana}
-                  alt="logo do site"
-                  quality={100}
-                  objectFit="fill"
-                  style={{ borderRadius: '50%', width: '80px', height: '80px' }}
-                />
-              </Box>
-              <Text>&quot; Facilitou muito o agendamento! &quot;</Text>
-              <Text>- Ana P.</Text>
-            </Flex>
-          </Flex>
-
-        </Flex>
+        <TestimonialsCarousel />
 
         <Flex direction="column" align="center">
           <Heading color="dourado.900" fontSize="3xl" mb={4}>
-            Planos e Preços
+            Planos de Preços
           </Heading>
 
           <Flex gap={8} mt={4} mb={4}>

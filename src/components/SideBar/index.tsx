@@ -18,10 +18,10 @@ import {
   useColorModeValue,
   CloseButton,
   IconButton
-
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { ReactNode } from "react";
+import { LiaUsersSolid } from "react-icons/lia";
 
 interface LinkItemsProps {
   name: string;
@@ -29,9 +29,11 @@ interface LinkItemsProps {
   route: string;
 }
 
+
 const LinkItems: LinkItemsProps[] = [
-  { name: "Agendar", icon: FiScissors, route: "/dashboard" },
-  { name: "Cortes", icon: FiClipboard, route: "/haircurts" },
+  { name: "Fila de espera", icon: LiaUsersSolid, route: "/espera" },
+  { name: "Agendar", icon: FiClipboard, route: "/dashboard" },
+  { name: "Cortes", icon: FiScissors, route: "/haircurts" },
   { name: "Minha Conta", icon: FiSettings, route: "/profile" },
 ]
 
@@ -72,12 +74,15 @@ interface SideBarProps extends BoxProps {
   onClose: () => void;
 }
 
+
+
 const SideBarContent = ({ onClose, ...rest }: SideBarProps) => {
+
   return (
     <Box
       bg="barberHub.400"
       borderRightWidth={1}
-      borderRightColor={useColorModeValue('gray.600', 'gray.700')}
+      borderRightColor={useColorModeValue('#68441F', '#754D24')}
       w={{ base: 'full', md: 60 }}
       pos="fixed"
       h="full"
@@ -92,6 +97,7 @@ const SideBarContent = ({ onClose, ...rest }: SideBarProps) => {
         </Link>
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
+
       {LinkItems.map(link => (
         <NavItems icon={link.icon} route={link.route} key={link.name}>
           {link.name}
@@ -119,8 +125,8 @@ const NavItems = ({ icon, children, route, ...rest }: NavItemProps) => {
         cursor="pointer"
         color="white"
         _hover={{
-          bg: 'barberHub.900',
-          color: 'white',
+          bg: 'barberHub.200',
+          color: 'dourado.900',
         }}
         {...rest}
       >
@@ -157,18 +163,19 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
       alignItems="center"
       bg={useColorModeValue('barberHub.400', 'gray.900')}
       borderBottomWidth="1px"
-      borderBottomColor={useColorModeValue('gray.700', 'gray.700')}
+      borderBottomColor={useColorModeValue('#68441F', '#754D24')}
       justifyContent="flex-start"
       {...rest}
     >
       <IconButton
         variant="outline"
-        borderColor="gray.500"
-        color="gray.500"
+        borderColor="#68441F"
+        color="#68441F"
         aria-label="open menu"
         _hover={{
           bg: 'barberHub.900',
-          color: 'white',
+          color: 'button.cta',
+          borderColor: 'button.cta',
         }}
         onClick={onOpen}
         icon={<FiMenu />}

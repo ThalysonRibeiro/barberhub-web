@@ -21,7 +21,7 @@ interface UserProps {
 
 interface SubscriptionProps {
   id: string;
-  satatus: string;
+  status: string;
 }
 
 type AuthProviderProps = {

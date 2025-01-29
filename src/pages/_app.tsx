@@ -17,10 +17,10 @@ const colors = {
     hover: '#754D24',
     default: '#FFF',
     gray: '#DFDFDF',
-    danger: '#FF4040',
   },
-  red: {
-    900: '#8B0000'
+  danger: {
+    900: '#8B0000',
+    800: '#FF4040',
   },
   dourado: {
     900: '#C6A05B',

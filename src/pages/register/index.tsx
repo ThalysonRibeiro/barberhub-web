@@ -77,7 +77,7 @@ export default function Register() {
             mb={6}
             color="gray.300"
             size="lg"
-            _hover={{ bg: "#0353a4" }}
+            _hover={{ bg: "button.hover" }}
             onClick={handleRegister}
           >
             Acessar
@@ -85,7 +85,7 @@ export default function Register() {
 
           <Center mt={2}>
             <Link href="/login">
-              <Text>Já possue uma conta? <strong style={{ color: "#0466c8" }}>Faça login</strong></Text>
+              <Text>Já possue uma conta? <strong style={{ color: "#C6A05B" }}>Faça login</strong></Text>
             </Link>
           </Center>
 
