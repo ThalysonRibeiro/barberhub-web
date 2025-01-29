@@ -48,7 +48,7 @@ export default function Profile({ user, premium }: ProfileProps) {
         <title>BarberHub - Minha conta.</title>
       </Head>
       <SideBar>
-        <Flex direction="column" alignItems="flex-start" justifyContent="flex-start">
+        <Flex direction="column" alignItems="center" justifyContent="flex-start">
 
           <Flex w="100%" direction="column" alignContent="center" justifyContent="flex-start">
             <Heading fontSize="3xl" mt={1} mb={4} mr={4}>Minha conta</Heading>
