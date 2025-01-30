@@ -20,8 +20,9 @@ import {
   IconButton
 } from "@chakra-ui/react";
 import Link from "next/link";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { LiaUsersSolid } from "react-icons/lia";
+import { setupAPIClient } from "@/services/api";
 
 interface LinkItemsProps {
   name: string;
@@ -29,9 +30,12 @@ interface LinkItemsProps {
   route: string;
 }
 
+const LinkSubscription: LinkItemsProps[] = [
+  { name: "Fila de espera", icon: LiaUsersSolid, route: "/espera" },
+]
 
 const LinkItems: LinkItemsProps[] = [
-  { name: "Fila de espera", icon: LiaUsersSolid, route: "/espera" },
+
   { name: "Agendar", icon: FiClipboard, route: "/dashboard" },
   { name: "Cortes", icon: FiScissors, route: "/haircurts" },
   { name: "Minha Conta", icon: FiSettings, route: "/profile" },
@@ -75,8 +79,22 @@ interface SideBarProps extends BoxProps {
 }
 
 
-
 const SideBarContent = ({ onClose, ...rest }: SideBarProps) => {
+  const [hasSubscription, setHasSubscription] = useState(false);
+
+  useEffect(() => {
+    const checkSubscription = async () => {
+      try {
+        const apiClient = setupAPIClient();
+        const response = await apiClient.get('/haircut/check');
+
+        setHasSubscription(response.data?.subscriptions?.status === 'active');
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    checkSubscription();
+  }, []);
 
   return (
     <Box
@@ -97,6 +115,14 @@ const SideBarContent = ({ onClose, ...rest }: SideBarProps) => {
         </Link>
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
+
+
+      {hasSubscription && LinkSubscription.map(link => (
+        <NavItems icon={link.icon} route={link.route} key={link.name}>
+          {link.name}
+        </NavItems>
+
+      ))}
 
       {LinkItems.map(link => (
         <NavItems icon={link.icon} route={link.route} key={link.name}>
