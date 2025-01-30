@@ -75,7 +75,7 @@ export default function Register() {
           <Button
             background="button.cta"
             mb={6}
-            color="gray.300"
+            color="gray.700"
             size="lg"
             _hover={{ bg: "button.hover" }}
             onClick={handleRegister}
