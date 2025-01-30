@@ -45,7 +45,7 @@ export default function Profile({ user, premium }: ProfileProps) {
   return (
     <>
       <Head>
-        <title>BarberHub - Minha conta.</title>
+        <title>Minha conta</title>
       </Head>
       <SideBar>
         <Flex direction="column" alignItems="center" justifyContent="flex-start">
