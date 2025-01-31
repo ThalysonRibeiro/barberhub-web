@@ -40,6 +40,7 @@ const testimonials = [
 ];
 
 const StarRating = ({ rating }) => (
+
   <Flex>
     {[...Array(5)].map((_, index) => (
       <StarIcon key={index} color={index < rating ? 'yellow.400' : 'gray.300'} />
@@ -48,6 +49,8 @@ const StarRating = ({ rating }) => (
 );
 
 const TestimonialCard = ({ testimonial }) => (
+
+
   <Box
     bg="gray.800"
     p={6}
@@ -82,7 +85,7 @@ const TestimonialsCarousel = () => {
   };
 
   useEffect(() => {
-    const interval = setInterval(handleNext, 3500); // Mova a cada 5 segundos
+    const interval = setInterval(handleNext, 5000); // Mova a cada 5 segundos
     return () => clearInterval(interval); // Limpa o intervalo ao desmontar o componente
   }, []);
 
