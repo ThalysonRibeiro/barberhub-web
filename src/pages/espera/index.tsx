@@ -11,7 +11,7 @@ interface DashboardProps {
   schedule: ScheduleItem[];
 }
 
-export default function Espera({ schedule: initialSchedule }: DashboardProps) {
+export default function Espera({ schedule: initialSchedule, }: DashboardProps) {
   const [isMobile] = useMediaQuery("(max-width: 500px)");
   const [list, setList] = useState(initialSchedule);
   const [isLoading, setIsLoading] = useState(false);
@@ -109,6 +109,16 @@ export const getServerSideProps = canSSRAuth(async (ctx) => {
   try {
     const apiCLient = setupAPIClient(ctx);
     const response = await apiCLient.get('/schedule');
+    const subscription = await apiCLient.get('/me');
+
+    if (subscription.data?.subscriptions?.status !== 'active') {
+      return {
+        redirect: {
+          destination: '/dashboard',
+          permanent: false,
+        }
+      }
+    }
 
     return {
       props: {
