@@ -74,7 +74,13 @@ export default function Haircurts({ haircuts }: HaircutsProps) {
             </Link>
 
             <Stack ml="auto" mb={2} align="center" direction="row">
-              <Text>ATIVOS</Text>
+              <Text>
+                {disableHaircut === "enabled" ? (
+                  "ATIVOS"
+                ) : (
+                  "DESATIVADOS"
+                )}
+              </Text>
               <Switch
                 colorScheme="green"
                 size="lg"
