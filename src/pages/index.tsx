@@ -1,4 +1,4 @@
-import { Button, Center, Flex, Heading, Text } from "@chakra-ui/react";
+import { Button, Center, Flex, Heading, Text, useMediaQuery } from "@chakra-ui/react";
 import logoImg from "../../public/barberhub.png"
 import Head from "next/head";
 import Image from "next/image";
@@ -10,6 +10,8 @@ import { LiaUsersCogSolid } from "react-icons/lia";
 import TestimonialsCarousel from "@/components/Carousel";
 
 export default function Home() {
+  const [isMobile] = useMediaQuery("(max-width: 500px)");
+
   return (
     <>
       <Head>
@@ -49,8 +51,7 @@ export default function Home() {
               <Button
                 w="200px"
                 bg="button.cta"
-                color="barberHub.200"
-                _hover={{ bg: "button.hover", color: "button.gray" }}
+                _hover={{ bg: "button.hover", }}
               >
                 Experimente Grátis
               </Button>
@@ -62,7 +63,7 @@ export default function Home() {
           <Flex alignItems="center" justifyContent="center" direction="column" w="250px" h="250px" bg="barberHub.300" rounded="md"
             borderWidth={1}
             borderColor="dourado.900">
-            <Center bg="button.cta" w="100px" h="100px" rounded="full" mb={3}>
+            <Center bg="button.hover" w="100px" h="100px" rounded="full" mb={3}>
               <BsCalendar2Date size={48} color="#2D2D2D" />
             </Center>
             <Text>Agendamentos</Text>
@@ -72,7 +73,7 @@ export default function Home() {
           <Flex alignItems="center" justifyContent="center" direction="column" w="250px" h="250px" bg="barberHub.300" rounded="md"
             borderWidth={1}
             borderColor="dourado.900">
-            <Center bg="button.cta" w="100px" h="100px" rounded="full" mb={3}>
+            <Center bg="button.hover" w="100px" h="100px" rounded="full" mb={3}>
               <PiScissorsLight size={48} color="#2D2D2D" />
             </Center>
             <Text>Modelos de corte</Text>
@@ -82,7 +83,7 @@ export default function Home() {
           <Flex alignItems="center" justifyContent="center" direction="column" w="250px" h="250px" bg="barberHub.300" rounded="md"
             borderWidth={1}
             borderColor="dourado.900">
-            <Center bg="button.cta" w="100px" h="100px" rounded="full" mb={3}>
+            <Center bg="button.hover" w="100px" h="100px" rounded="full" mb={3}>
               <LiaUsersCogSolid size={48} color="#2D2D2D" />
             </Center>
             <Text>Gestão de clientes</Text>
@@ -98,50 +99,39 @@ export default function Home() {
             Planos de Preços
           </Heading>
 
-          <Flex gap={8} mt={4} mb={4}>
-
-            <Flex bg="barberHub.300" w="300px" h="400px" direction="column" rounded="md" p={3} justifyContent="space-between"
-              borderWidth={1}
-              borderColor="dourado.800"
-            >
-              <Flex direction="column">
-                <Text fontSize="3xl">Básico</Text>
-                <Text fontSize="2xl">Básico</Text>
-                <Text fontSize="2xl">Básico</Text>
-              </Flex>
-
-              <Text fontSize="4xl" color="#09FF32" fontWeight="bold" textDecoration="line-through">R$ 0.00</Text>
+          <Flex maxW="700px" w="100%" gap={4} direction={isMobile ? "column" : "row"}>
+            <Flex rounded={4} p={2} flex={1} bg="barberHub.300" direction="column">
+              <Heading textAlign="center" fontSize="2xl" mt={2} mb={2}>Planop grátis</Heading>
+              <Text ml={4} mb={2}>Registrar conrte</Text>
+              <Text ml={4} mb={2}>Criar apenas 3 modelos de corte</Text>
+              <Text ml={4} mb={2}>Editar dados do perfil</Text>
+              <Text ml={4} mb={2}>Receba todas as atualizações</Text>
             </Flex>
-            <Flex bg="barberHub.300" w="300px" h="400px" direction="column" rounded="md" p={3} justifyContent="space-between"
-              borderWidth={1}
-              borderColor="dourado.800"
-            >
-              <Flex direction="column">
-                <Text fontSize="3xl">Premium</Text>
-                <Text fontSize="2xl">Premium</Text>
-                <Text fontSize="2xl">Premium</Text>
-              </Flex>
+            <Flex rounded={4} p={2} flex={1} bg="barberHub.300" direction="column" borderWidth={1} borderColor="dourado.900">
+              <Heading textAlign="center" fontSize="2xl" mt={2} mb={2} color="#31fb6a">Premium</Heading>
+              <Text ml={4} mb={2}>Registrar conrte ilimitados</Text>
+              <Text ml={4} mb={2}>Criar modelos de corte ilimitados</Text>
+              <Text ml={4} mb={2}>Editar dados do perfil</Text>
+              <Text ml={4} mb={2}>Editar modelos de corte</Text>
+              <Text ml={4} mb={2}>Pagina de fila de espera</Text>
+              <Text ml={4} mb={2}>Receba todas as atualizações</Text>
+              <Text ml={4} mb={2} color="#31fb6a" fontSize="3xl" fontWeight="bold">R$ 9.90</Text>
+              <Button
+                mb={2}
+              >
+                SEJA PREMIUM
+              </Button>
 
-              <Text fontSize="4xl" color="#09FF32" fontWeight="bold">R$ 9.99</Text>
             </Flex>
-
           </Flex>
 
           <Flex direction="column" w="900px" h="300px" alignItems="center" justifyContent="center" mt={4}>
             <Heading fontSize="3xl" mb={4}>
               Pronto para Transformar Sua Barbearia?
             </Heading>
-            <Text
-              bg="button.cta"
-              color="white"
-              rounded="lg"
-              align="center"
-              fontWeight="bold"
-              p={2}
-              w="200px"
-            >
+            <Button>
               Comece Agora
-            </Text>
+            </Button>
           </Flex>
         </Flex >
 

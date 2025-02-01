@@ -14,18 +14,21 @@ export function Header() {
           <>
             <Link href="/login">
               <Button
+                size="sm"
                 bg="button.cta"
                 color="barberHub.200"
-                _hover={{ bg: "button.hover", color: "button.gray" }}
+                _hover={{ bg: "button.hover", }}
               >
                 Entrar
               </Button>
             </Link>
             <Link href="/register">
               <Button
+                size="sm"
+                mr={4}
                 bg="button.cta"
                 color="barberHub.200"
-                _hover={{ bg: "button.hover", color: "button.gray" }}
+                _hover={{ bg: "button.hover", }}
               >
                 Registrar
               </Button>

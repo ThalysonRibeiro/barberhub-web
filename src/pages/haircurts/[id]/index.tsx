@@ -83,7 +83,6 @@ export default function EditHaircuts({ haircut, subscription }: EditeHaircutProp
           >
             <Link href="/haircurts">
               <Button
-                background="button.cta"
                 color="gray.700"
                 size="sm"
                 mr={4}
@@ -135,7 +134,6 @@ export default function EditHaircuts({ haircut, subscription }: EditeHaircutProp
                 />
               </Stack>
               <Button
-                background="button.cta"
                 color="gray.700"
                 size="md"
                 w="100%"

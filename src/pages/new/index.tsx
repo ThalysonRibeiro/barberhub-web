@@ -97,7 +97,6 @@ export default function New({ haircuts }: NewProps) {
             </Select>
 
             <Button
-              background="button.cta"
               color="gray.700"
               size="md"
               w="85%"

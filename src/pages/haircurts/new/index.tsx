@@ -51,7 +51,6 @@ export default function New({ subscription, count }: NewHaircutProps) {
           >
             <Link href="/haircurts">
               <Button
-                background="button.cta"
                 color="gray.700"
                 size="sm"
                 mr={4}
@@ -99,7 +98,6 @@ export default function New({ subscription, count }: NewHaircutProps) {
             />
             <Button
               w="85%"
-              background="button.cta"
               color="gray.700"
               size="md"
               mb={4}

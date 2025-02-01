@@ -1,5 +1,6 @@
 import { SideBar } from "@/components/SideBar";
 import { setupAPIClient } from "@/services/api";
+import { getStripeJs } from "@/services/stripe-js";
 import { canSSRAuth } from "@/utils/canSSRAuth";
 import { Button, Flex, Heading, Text, useMediaQuery } from "@chakra-ui/react";
 import Head from "next/head";
@@ -10,6 +11,43 @@ interface PlanosProps {
 
 export default function Planos({ premium }: PlanosProps) {
   const [isMobile] = useMediaQuery("(max-width: 500px)");
+
+  const handleSubscribe = async () => {
+    if (premium) {
+      return;
+    }
+
+    try {
+      const apiCLient = setupAPIClient();
+      const response = await apiCLient.post('/subscribe');
+
+      const { sessionId } = response.data;
+
+      const stripe = await getStripeJs();
+      await stripe.redirectToCheckout({ sessionId: sessionId });
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function handleCreatePortal() {
+    try {
+      if (!premium) {
+        return;
+      }
+
+      const apiClient = setupAPIClient();
+      const response = await apiClient.post('/create-portal');
+
+      const { sessionId } = response.data;
+
+      window.location.href = sessionId;
+
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
 
   return (
     <>
@@ -52,11 +90,11 @@ export default function Planos({ premium }: PlanosProps) {
                 <Text ml={4} mb={2}>Editar modelos de corte</Text>
                 <Text ml={4} mb={2}>Pagina de fila de espera</Text>
                 <Text ml={4} mb={2}>Receba todas as atualizações</Text>
-                <Text ml={4} mb={2} color="#31fb6a" fontSize="3xl" fontWeight="bold">R$ 9.99</Text>
+                <Text ml={4} mb={2} color="#31fb6a" fontSize="3xl" fontWeight="bold">R$ 9.90</Text>
                 <Button
                   mb={2}
                   disabled={premium}
-                  onClick={() => { }}
+                  onClick={handleSubscribe}
                 >
                   {premium ? (
                     "VOCÊ JÁ É PREMIUM"
@@ -66,7 +104,11 @@ export default function Planos({ premium }: PlanosProps) {
                 </Button>
 
                 {premium && (
-                  <Button bg="black" color="white" _hover={{ bg: "button.hover" }} onClick={() => { }}>
+                  <Button
+                    bg="black"
+                    color="white"
+                    _hover={{ bg: "button.hover" }}
+                    onClick={handleCreatePortal}>
                     ALTERAR ASSINATURA
                   </Button>
                 )}

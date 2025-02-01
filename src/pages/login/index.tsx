@@ -63,7 +63,6 @@ export default function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
           <Button
-            background="button.cta"
             mb={6}
             color="gray.700"
             size="lg"

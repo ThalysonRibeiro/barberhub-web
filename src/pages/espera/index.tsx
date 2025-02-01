@@ -47,7 +47,6 @@ export default function Espera({ schedule: initialSchedule, }: DashboardProps) {
       <Flex bg="barberHub.900" h="6vh" alignItems="center">
         <Link href="/dashboard">
           <Button
-            background="button.cta"
             color="gray.700"
             size="sm"
             ml={4}

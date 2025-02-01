@@ -74,7 +74,6 @@ export default function Dashboard({ schedule }: DashboardProps) {
             <Heading fontSize={isMobile ? "28px" : "3xl"} mt={4} mb={4} mr={4}>Agenda de clientes</Heading>
             <Link href="/new">
               <Button
-                background="button.cta"
                 color="gray.700"
                 size="sm"
                 _hover={{ bg: "button.hover" }}

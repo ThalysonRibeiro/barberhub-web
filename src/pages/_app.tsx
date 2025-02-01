@@ -7,14 +7,14 @@ import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 const colors = {
   barberHub: {
     900: "#18181b",
-    400: '#1A1A1A',
+    400: '#121215',
     300: '#27272a',
     200: '#2D2D2D',
     100: '#c6c6c6',
   },
   button: {
-    cta: '#C6A05B',
-    hover: '#754D24',
+    cta: '#FFF',
+    hover: '#C6A05B',
     default: '#FFF',
     gray: '#DFDFDF',
   },

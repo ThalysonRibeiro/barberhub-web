@@ -20,8 +20,8 @@ interface ProfileProps {
 
 export default function Profile({ user, premium }: ProfileProps) {
   const { logoutUser } = useContext(AuthContext);
-  const [name, setName] = useState(user && user?.name);
-  const [endereco, setEndereco] = useState(user && user?.endereco);
+  const [name, setName] = useState(user?.name || '');
+  const [endereco, setEndereco] = useState(user?.endereco || '');
 
   async function handleLogout() {
     logoutUser();
@@ -110,7 +110,6 @@ export default function Profile({ user, premium }: ProfileProps) {
 
               </Flex>
               <Button
-                background="button.cta"
                 mb={6}
                 color="gray.700"
                 size="lg"

@@ -55,7 +55,6 @@ export function ModalInfo({ isOpen, onOpen, onClose, data, finishService }: Moda
 
           <ModalFooter>
             <Button
-              background="button.cta"
               color="gray.700"
               size="md"
               _hover={{ bg: "button.hover" }}

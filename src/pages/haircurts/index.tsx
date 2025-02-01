@@ -65,7 +65,6 @@ export default function Haircurts({ haircuts }: HaircutsProps) {
 
             <Link href="/haircurts/new">
               <Button
-                background="button.cta"
                 color="gray.700"
                 size="sm"
                 _hover={{ bg: "button.hover" }}
