@@ -110,7 +110,7 @@ const SideBarContent = ({ onClose, ...rest }: SideBarProps) => {
         <Link href="/dashboard">
           <Flex cursor="pointer" userSelect="none" flexDirection="row">
             <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold" color="white">Barber</Text>
-            <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold" color="blue.400">HUB</Text>
+            <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold" color="blue.400">PRO</Text>
           </Flex>
         </Link>
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
