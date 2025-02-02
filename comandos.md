@@ -4,3 +4,4 @@ npm install axios nookies jwt-decode
 npm install react-icons
 npm install @stripe/stripe-js
 npm i @chakra-ui/icons
+npm install swiper

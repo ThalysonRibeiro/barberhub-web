@@ -1,38 +1,37 @@
-import React, { useState, useEffect } from 'react';
-import {
-  Box,
-  Flex,
-  Text,
-  Avatar,
-  Container,
-} from '@chakra-ui/react';
 import { StarIcon } from '@chakra-ui/icons';
+import React from 'react';
+import { Box, Flex, Text, Avatar, useMediaQuery } from '@chakra-ui/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 const testimonials = [
   {
     name: 'João S.',
-    image: '/path-to-image-1.jpg',
+    image: '',
     text: 'Excelente ferramenta para minha barbearia!',
     role: 'Proprietário da Barbearia X',
     star: 5,
   },
   {
     name: 'Ana P.',
-    image: '/path-to-image-2.jpg',
+    image: '',
     text: 'Facilitou muito o agendamento!',
     role: 'Cliente',
     star: 5,
   },
   {
     name: 'John B.',
-    image: '/path-to-image-2.jpg',
+    image: '',
     text: 'Excelente ferramenta!',
     role: 'Proprietário da Barbearia Barber King',
     star: 5,
   },
   {
-    name: 'Sara C.',
-    image: '/path-to-image-2.jpg',
+    name: 'Jhon C.',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf01KkA7W5PuZxiU8_bAdM4jpq6ev6ACIvGg&s',
     text: 'Excelente ferramenta!',
     role: 'Proprietário da Barbearia Barber King',
     star: 4,
@@ -40,7 +39,6 @@ const testimonials = [
 ];
 
 const StarRating = ({ rating }) => (
-
   <Flex>
     {[...Array(5)].map((_, index) => (
       <StarIcon key={index} color={index < rating ? 'yellow.400' : 'gray.300'} />
@@ -49,18 +47,16 @@ const StarRating = ({ rating }) => (
 );
 
 const TestimonialCard = ({ testimonial }) => (
-
-
   <Box
     bg="gray.800"
     p={6}
     borderRadius="lg"
     boxShadow="xl"
-    width="300px"
-    mx={2}
+    width={{ base: "100%", sm: "350px", md: "340px", lg: "475px" }}
+    mx="auto"
     borderWidth="1px"
     borderColor="gray.700"
-    flex="0 0 auto"
+
   >
     <Flex direction="column" align="center" textAlign="center">
       <Avatar size="lg" name={testimonial.name} src={testimonial.image} mb={4} />
@@ -77,36 +73,26 @@ const TestimonialCard = ({ testimonial }) => (
 );
 
 const TestimonialsCarousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const scrollAmount = 304; // Largura do card + margin
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length); // Muda para o próximo ou volta ao primeiro
-  };
-
-  useEffect(() => {
-    const interval = setInterval(handleNext, 5000); // Mova a cada 5 segundos
-    return () => clearInterval(interval); // Limpa o intervalo ao desmontar o componente
-  }, []);
-
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
   return (
-    <Container maxW="container.xl" py={6}>
-      <Box position="relative">
-        <Flex align="center" justify="center" overflow="hidden" px={8}>
-          <Flex width="100%" overflow="hidden">
-            <Flex
-              transition="transform 0.5s ease-in-out"
-              transform={`translateX(-${currentIndex * scrollAmount}px)`} // Aplica a transformação com base no índice atual
-              gap={4}
-            >
-              {testimonials.map((testimonial, index) => (
-                <TestimonialCard key={index} testimonial={testimonial} />
-              ))}
-            </Flex>
-          </Flex>
-        </Flex>
-      </Box>
-    </Container>
+    <Box maxW={isMobile ? "400px" : "1280px"} w="100%" mx="auto" p={4} mt={8}>
+      <Swiper
+        modules={[Autoplay]}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        slidesPerView={isMobile ? 1 : 2}
+        spaceBetween={20}
+        className="mySwiper"
+      >
+        {testimonials.map((testimonial, index) => (
+          <SwiperSlide key={index}>
+            <TestimonialCard testimonial={testimonial} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </Box>
   );
 };
 

@@ -4,35 +4,45 @@ import { AuthProvider } from "@/context/AuthContext";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 
 
-const colors = {
-  barberHub: {
-    900: "#18181b",
-    400: '#121215',
-    300: '#27272a',
-    200: '#2D2D2D',
-    100: '#c6c6c6',
+const theme = extendTheme({
+  styles: {
+    global: {
+      body: {
+        bg: 'gray.900',
+        color: 'white',
+      },
+    },
   },
-  button: {
-    cta: '#FFF',
-    hover: '#C6A05B',
-    default: '#FFF',
-    gray: '#DFDFDF',
+  components: {
+    Button: {
+      baseStyle: {
+        fontWeight: 'semibold',
+      },
+      variants: {
+        solid: {
+          bg: 'blue.600',
+          color: 'white',
+          _hover: {
+            bg: 'blue.700',
+          },
+        },
+        outline: {
+          color: 'white',
+          borderColor: 'whiteAlpha.400',
+          _hover: {
+            bg: 'whiteAlpha.200',
+          },
+        },
+      },
+    },
+    Heading: {
+      baseStyle: {
+        color: 'white',
+      },
+    },
   },
-  danger: {
-    900: '#8B0000',
-    800: '#FF4040',
-  },
-  dourado: {
-    900: '#C6A05B',
-    800: '#68441F'
-  },
-  blue: {
-    900: '#0353a4',
-    800: '#023E7B',
-  },
-}
+});
 
-const theme = extendTheme({ colors })
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

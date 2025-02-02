@@ -1,148 +1,338 @@
-import { Button, Center, Flex, Heading, Text, useMediaQuery } from "@chakra-ui/react";
-import logoImg from "../../public/barberhub.png"
-import Head from "next/head";
-import Image from "next/image";
-import { Header } from "@/components/Header";
-import Link from "next/link";
-import { BsCalendar2Date } from "react-icons/bs";
+import { AuthContext } from '@/context/AuthContext';
+import {
+  Box,
+  Button,
+  Container,
+  Flex,
+  Grid,
+  Heading,
+  HStack,
+  Icon,
+  Link,
+  Stack,
+  Text,
+  VStack,
+} from '@chakra-ui/react';
+import {
+  Scissors,
+  Calendar,
+  Users,
+  BarChart,
+  MessageSquare,
+  Clock,
+  CheckCircle,
+} from 'lucide-react';
+import { NextPage } from 'next';
+import { useContext } from 'react';
+import { IconType } from 'react-icons/lib';
+import { FiLogOut, FiUser } from "react-icons/fi";
 import { PiScissorsLight } from "react-icons/pi";
-import { LiaUsersCogSolid } from "react-icons/lia";
-import TestimonialsCarousel from "@/components/Carousel";
+import TestimonialsCarousel from '@/components/Carousel';
 
-export default function Home() {
-  const [isMobile] = useMediaQuery("(max-width: 500px)");
+
+const Home: NextPage = () => {
+  const { logoutUser, user } = useContext(AuthContext);
+
+
 
   return (
-    <>
-      <Head>
-        <title>BarberHub - seu sistema completo.</title>
-      </Head>
-      <Header />
-      <Flex
-        background="barberHub.900"
-        w="100%"
-        alignItems="center"
-        justifyContent="center"
-        direction="column"
-      >
-        <Flex
-          maxW="1280px" w="100%"
-          h="700px"
-          background="barberHub.900"
-          color="button.default"
-          direction="column"
-          alignItems="center"
-        >
-          <Center p={4}>
-            <Image
-              src={logoImg}
-              alt="logo do site"
-              quality={100}
-              objectFit="fill"
-              width={500}
-            />
-          </Center>
-          <Flex direction="column" gap={3} maxW="900px" w="100%">
-            <Heading color="dourado.900" fontSize="5xl">
-              Gerencie Seus Clientes com Facilidade
+    <Box minH="100vh" bg="gray.900">
+      {/* Hero Section */}
+      <Box bgGradient="linear(to-r, blue.900, purple.900)" color="white">
+        <Container maxW="container.xl" px={6}>
+          <Flex py={4} justify="space-between" align="center">
+            <HStack spacing={2}>
+              <Icon as={Scissors} boxSize={8} />
+              <Text fontSize="2xl" fontWeight="bold">
+                BarberPro
+              </Text>
+            </HStack>
+            <HStack spacing={8} display={{ base: 'none', md: 'flex' }}>
+              <Link href="#features" _hover={{ color: 'blue.300' }}>
+                Recursos
+              </Link>
+              <Link href="#benefits" _hover={{ color: 'blue.300' }}>
+                Benefícios
+              </Link>
+              <Link href="#pricing" _hover={{ color: 'blue.300' }}>
+                Preços
+              </Link>
+            </HStack>
+
+
+            {!user ? (
+              <>
+                <Link href="/register">
+                  <Button variant="outline">Começar Agora</Button>
+                </Link>
+              </>
+            ) : (
+              <Flex gap={6} >
+                <Text>{user?.name}</Text>
+                <Link href="/dashboard">
+                  <FiUser size={28} color="white" />
+                </Link>
+                <Flex onClick={logoutUser} cursor="pointer">
+                  <FiLogOut size={28} color="#FF4040" />
+                </Flex>
+              </Flex>
+            )}
+          </Flex>
+
+          <VStack py={24} spacing={6} textAlign="center">
+            <Heading as="h1" size="2xl" maxW="3xl">
+              Gerencie sua barbearia com excelência
             </Heading>
-            <Text mb={6}>A solução ideal para barbearias que desejam otimizar seus serviços.</Text>
-            <Link href="/">
-              <Button
-                w="200px"
-                bg="button.cta"
-                _hover={{ bg: "button.hover", }}
-              >
-                Experimente Grátis
-              </Button>
-            </Link>
-          </Flex>
-        </Flex>
-
-        <Flex gap={6} mb={4} h="300px">
-          <Flex alignItems="center" justifyContent="center" direction="column" w="250px" h="250px" bg="barberHub.300" rounded="md"
-            borderWidth={1}
-            borderColor="dourado.900">
-            <Center bg="button.hover" w="100px" h="100px" rounded="full" mb={3}>
-              <BsCalendar2Date size={48} color="#2D2D2D" />
-            </Center>
-            <Text>Agendamentos</Text>
-            <Text>Marque horários facilmente</Text>
-          </Flex>
-
-          <Flex alignItems="center" justifyContent="center" direction="column" w="250px" h="250px" bg="barberHub.300" rounded="md"
-            borderWidth={1}
-            borderColor="dourado.900">
-            <Center bg="button.hover" w="100px" h="100px" rounded="full" mb={3}>
-              <PiScissorsLight size={48} color="#2D2D2D" />
-            </Center>
-            <Text>Modelos de corte</Text>
-            <Text>Adicione, Gerencie</Text>
-          </Flex>
-
-          <Flex alignItems="center" justifyContent="center" direction="column" w="250px" h="250px" bg="barberHub.300" rounded="md"
-            borderWidth={1}
-            borderColor="dourado.900">
-            <Center bg="button.hover" w="100px" h="100px" rounded="full" mb={3}>
-              <LiaUsersCogSolid size={48} color="#2D2D2D" />
-            </Center>
-            <Text>Gestão de clientes</Text>
-            <Text>Agende, Gerencie</Text>
-          </Flex>
-
-        </Flex>
-
-        <TestimonialsCarousel />
-
-        <Flex direction="column" align="center">
-          <Heading color="dourado.900" fontSize="3xl" mb={4}>
-            Planos de Preços
-          </Heading>
-
-          <Flex maxW="700px" w="100%" gap={4} direction={isMobile ? "column" : "row"}>
-            <Flex rounded={4} p={2} flex={1} bg="barberHub.300" direction="column">
-              <Heading textAlign="center" fontSize="2xl" mt={2} mb={2}>Planop grátis</Heading>
-              <Text ml={4} mb={2}>Registrar conrte</Text>
-              <Text ml={4} mb={2}>Criar apenas 3 modelos de corte</Text>
-              <Text ml={4} mb={2}>Editar dados do perfil</Text>
-              <Text ml={4} mb={2}>Receba todas as atualizações</Text>
-            </Flex>
-            <Flex rounded={4} p={2} flex={1} bg="barberHub.300" direction="column" borderWidth={1} borderColor="dourado.900">
-              <Heading textAlign="center" fontSize="2xl" mt={2} mb={2} color="#31fb6a">Premium</Heading>
-              <Text ml={4} mb={2}>Registrar conrte ilimitados</Text>
-              <Text ml={4} mb={2}>Criar modelos de corte ilimitados</Text>
-              <Text ml={4} mb={2}>Editar dados do perfil</Text>
-              <Text ml={4} mb={2}>Editar modelos de corte</Text>
-              <Text ml={4} mb={2}>Pagina de fila de espera</Text>
-              <Text ml={4} mb={2}>Receba todas as atualizações</Text>
-              <Text ml={4} mb={2} color="#31fb6a" fontSize="3xl" fontWeight="bold">R$ 9.90</Text>
-              <Button
-                mb={2}
-              >
-                SEJA PREMIUM
-              </Button>
-
-            </Flex>
-          </Flex>
-
-          <Flex direction="column" w="900px" h="300px" alignItems="center" justifyContent="center" mt={4}>
-            <Heading fontSize="3xl" mb={4}>
-              Pronto para Transformar Sua Barbearia?
-            </Heading>
-            <Button>
-              Comece Agora
+            <Text fontSize="xl" color="whiteAlpha.800" maxW="2xl">
+              Sistema completo para agendamentos, gestão de clientes da sua barbearia
+            </Text>
+            <Button size="lg" colorScheme="blue">
+              Experimente Grátis
             </Button>
-          </Flex>
-        </Flex >
+          </VStack>
+        </Container>
+      </Box>
 
-        <Center w="100%" h="1px" bg="barberHub.100" mt={4}></Center>
-        <Flex w="100%" h="50px" bg="barberHub.00" justifyContent="space-evenly" alignItems="center" mt={4} p={4}>
-          <Text>Política de Privacidade | Termos de Serviço</Text>
-          <Text>Rafinha.head@gmail.com</Text>
-        </Flex>
+      {/* Features Section */}
+      <Box py={20} bg="gray.800" id="features">
+        <Container maxW="container.xl" px={6}>
+          <VStack spacing={16}>
+            <Heading textAlign="center">Recursos Principais</Heading>
+            <Grid
+              templateColumns={{ base: '1fr', md: 'repeat(3, 1fr)' }}
+              gap={12}
+            >
+              <FeatureCard
+                icon={Calendar}
+                title="Agendamento Online"
+                description="Sistema intuitivo para agendar seus clientes"
+              />
+              <FeatureCard
+                icon={Users}
+                title="Gestão de Clientes"
+                description="Gestão de clientes, Agende, Gerencie"
+              />
+              <FeatureCard
+                icon={PiScissorsLight}
+                title="Cadastro de Dodelos"
+                description="Modelos de corte, Adicione, Gerencie"
+              />
+            </Grid>
+          </VStack>
+        </Container>
+      </Box>
 
-      </Flex >
+      {/* Benefits Section */}
+      <Box py={20} bg="gray.900" id="benefits">
+        <Container maxW="container.xl" px={6}>
+          <VStack spacing={16}>
+            <Heading textAlign="center">Por que escolher o BarberPro?</Heading>
+            <Grid
+              templateColumns={{ base: '1fr', md: 'repeat(2, 1fr)' }}
+              gap={12}
+            >
+              <BenefitItem
+                icon={Clock}
+                title="Economia de Tempo"
+                description="Agilize os processos e foque no que realmente importa"
+              />
+              <BenefitItem
+                icon={MessageSquare}
+                title="Comunicação Eficiente"
+                description="Lembretes automáticos e comunicação direta com clientes"
+              />
+              <BenefitItem
+                icon={CheckCircle}
+                title="Satisfação Garantida"
+                description="98% dos nossos clientes recomendam o BarberPro"
+              />
+              <BenefitItem
+                icon={BarChart}
+                title="Crescimento do Negócio"
+                description="Aumento médio de 40% no faturamento dos nossos clientes"
+              />
+            </Grid>
+          </VStack>
+        </Container>
+        <TestimonialsCarousel />
+      </Box>
 
-    </>
+      {/* Pricing Section */}
+      <Box py={20} bg="gray.800" id="pricing">
+        <Container maxW="container.xl" px={6}>
+          <VStack spacing={16}>
+            <Heading textAlign="center">Planos e Preços</Heading>
+            <Grid
+              templateColumns={{ base: '1fr', md: 'repeat(2, 1fr)' }}
+              gap={8}
+              maxW="4xl"
+              w="full"
+            >
+              <PriceCard
+                title="Básico"
+                price="R$ 00"
+                features={[
+                  'Agendamento de clientes',
+                  'Criar apenas 3 modelos de corte',
+                  'Editar dados do perfil',
+                ]}
+              />
+              <PriceCard
+                featured={true}
+                title="Premium"
+                price="R$ 9,90"
+                features={[
+                  'Registrar conrte ilimitados',
+                  'Criar modelos de corte ilimitados<',
+                  'Editar dados do perfil',
+                  'Editar modelos de corte',
+                  'Pagina de fila de espera',
+                  'Receba todas as atualizações',
+                ]}
+              />
+            </Grid>
+          </VStack>
+        </Container>
+      </Box>
+
+      {/* Footer */}
+      <Box bg="blue.900" color="white" py={12}>
+        <Container maxW="container.xl" px={6}>
+          <Stack
+            direction={{ base: 'column', md: 'row' }}
+            justify="space-between"
+            align="center"
+            spacing={{ base: 4, md: 0 }}
+          >
+            <HStack spacing={2}>
+              <Icon as={Scissors} boxSize={6} />
+              <Text fontSize="xl" fontWeight="bold">
+                BarberPro
+              </Text>
+            </HStack>
+            <HStack spacing={6}>
+              <Link href="#" target='_blank' _hover={{ color: 'blue.300' }}>
+                Sobre
+              </Link>
+              <Link href="https://wa.me/65981278291?text=Oi! Deixe sua mensagem que respondo assim que pude" target='_blank' _hover={{ color: 'blue.300' }}>
+                Contato
+              </Link>
+              <Link href="/termos" target='_blank' _hover={{ color: 'blue.300' }}>
+                Termos
+              </Link>
+              <Link href="/privacidade" target='_blank' _hover={{ color: 'blue.300' }}>
+                Privacidade
+              </Link>
+            </HStack>
+          </Stack>
+          <Text color="whiteAlpha.800" textAlign="center" mt={8}>
+            © 2024 BarberPro. Todos os direitos reservados.
+          </Text>
+        </Container>
+      </Box>
+    </Box>
   );
+};
+
+interface FeatureCardProps {
+  icon: IconType;
+  title: string;
+  description: string;
 }
+
+const FeatureCard = ({ icon, title, description }: FeatureCardProps) => {
+  return (
+    <VStack
+      bg="gray.700"
+      p={8}
+      rounded="xl"
+      shadow="lg"
+      _hover={{ shadow: 'xl', transform: 'translateY(-2px)' }}
+      transition="all 0.2s"
+      spacing={4}
+    >
+      <Icon as={icon} boxSize={8} color="blue.400" />
+      <Heading size="md">{title}</Heading>
+      <Text color="whiteAlpha.800" textAlign="center">
+        {description}
+      </Text>
+    </VStack>
+  );
+};
+
+interface BenefitItemProps {
+  icon: IconType;
+  title: string;
+  description: string;
+}
+
+const BenefitItem = ({ icon, title, description }: BenefitItemProps) => {
+  return (
+    <HStack align="start" spacing={4}>
+      <Icon as={icon} boxSize={6} color="blue.400" flexShrink={0} />
+      <Box>
+        <Heading size="md" mb={2}>
+          {title}
+        </Heading>
+        <Text color="whiteAlpha.800">{description}</Text>
+      </Box>
+    </HStack>
+  );
+};
+
+interface PriceCardProps {
+  title: string;
+  price: string;
+  features: string[];
+  featured?: boolean;
+}
+
+const PriceCard = ({
+  title,
+  price,
+  features,
+  featured = false,
+}: PriceCardProps) => {
+  return (
+    <Box
+      bg="gray.700"
+      rounded="xl"
+      shadow="lg"
+      p={8}
+      transform={featured ? 'scale(1.05)' : undefined}
+      border={featured ? '2px' : undefined}
+      borderColor={featured ? 'blue.400' : undefined}
+      _hover={{ transform: featured ? 'scale(1.07)' : 'scale(1.02)' }}
+      transition="transform 0.2s"
+    >
+      <VStack spacing={6}>
+        <Heading size="md">{title}</Heading>
+        <HStack spacing={1}>
+          <Text fontSize="3xl" fontWeight="bold">
+            {price}
+          </Text>
+          <Text color="whiteAlpha.800">/mês</Text>
+        </HStack>
+        <VStack spacing={3} align="stretch" w="full">
+          {features.map((feature, index) => (
+            <HStack key={index} spacing={2}>
+              <Icon as={CheckCircle} boxSize={5} color="blue.400" />
+              <Text color="whiteAlpha.900">{feature}</Text>
+            </HStack>
+          ))}
+        </VStack>
+        <Link href="/register" w="full">
+          <Button
+            w="full"
+            variant={featured ? 'solid' : 'outline'}
+            colorScheme={featured ? 'blue' : 'gray'}
+          >
+            Começar Agora
+          </Button>
+        </Link>
+      </VStack>
+    </Box>
+  );
+};
+
+export default Home;
