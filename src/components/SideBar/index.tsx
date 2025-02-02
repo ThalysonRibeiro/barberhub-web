@@ -46,7 +46,7 @@ export function SideBar({ children }: { children: ReactNode }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <Box minH="100vh" bg="barberHub.900">
+    <Box minH="100vh" bg="gray.800">
       <SideBarContent
         onClose={() => onClose}
         display={{ base: 'none', md: 'block' }}
@@ -98,9 +98,9 @@ const SideBarContent = ({ onClose, ...rest }: SideBarProps) => {
 
   return (
     <Box
-      bg="barberHub.400"
+      bg="gray.900"
       borderRightWidth={1}
-      borderRightColor={useColorModeValue('#68441F', '#754D24')}
+      borderRightColor={useColorModeValue('blue.900', 'blue.900')}
       w={{ base: 'full', md: 60 }}
       pos="fixed"
       h="full"
@@ -110,7 +110,7 @@ const SideBarContent = ({ onClose, ...rest }: SideBarProps) => {
         <Link href="/dashboard">
           <Flex cursor="pointer" userSelect="none" flexDirection="row">
             <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold" color="white">Barber</Text>
-            <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold" color="button.hover">HUB</Text>
+            <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold" color="blue.400">HUB</Text>
           </Flex>
         </Link>
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
@@ -151,8 +151,8 @@ const NavItems = ({ icon, children, route, ...rest }: NavItemProps) => {
         cursor="pointer"
         color="white"
         _hover={{
-          bg: 'barberHub.200',
-          color: 'dourado.900',
+          bg: 'gray.800',
+          color: 'blue.300',
         }}
         {...rest}
       >
@@ -162,7 +162,7 @@ const NavItems = ({ icon, children, route, ...rest }: NavItemProps) => {
             fontSize="16"
             as={icon}
             _groupHover={{
-              color: 'white'
+              color: 'blue.300'
             }}
           />
         )}
@@ -187,21 +187,20 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
       px={{ base: 4, md: 24 }}
       height="20"
       alignItems="center"
-      bg={useColorModeValue('barberHub.400', 'gray.900')}
+      bg={useColorModeValue('gray.800', 'gray.900')}
       borderBottomWidth="1px"
-      borderBottomColor={useColorModeValue('#68441F', '#754D24')}
+      borderBottomColor={useColorModeValue('blue.900', 'blue.900')}
       justifyContent="flex-start"
       {...rest}
     >
       <IconButton
         variant="outline"
-        borderColor="#68441F"
-        color="#68441F"
+        borderColor="blue.900"
+        color="blue.900"
         aria-label="open menu"
         _hover={{
-          bg: 'barberHub.900',
-          color: 'button.cta',
-          borderColor: 'button.cta',
+          color: 'blue.300',
+          borderColor: 'blue.300',
         }}
         onClick={onOpen}
         icon={<FiMenu />}
@@ -210,7 +209,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
         <Text ml={8} fontSize="2xl" fontFamily="monospace" fontWeight="bold">
           Barber
         </Text>
-        <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold" color="button.cta">
+        <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold" color="blue.400">
           HUB
         </Text>
       </Flex>

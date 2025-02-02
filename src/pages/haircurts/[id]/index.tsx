@@ -83,42 +83,47 @@ export default function EditHaircuts({ haircut, subscription }: EditeHaircutProp
           >
             <Link href="/haircurts">
               <Button
-                color="gray.700"
+                color="white"
                 size="sm"
                 mr={4}
-                _hover={{ bg: "button.hover" }}
               >
-                <FiChevronLeft size={20} color="#374151" />  Voltar
+                <FiChevronLeft size={20} color="#fff" />  Voltar
               </Button>
             </Link>
 
             <Heading fontSize={isMobile ? "28px" : "3xl"} mt={4} mb={4} mr={4}>Editar modelo corte</Heading>
           </Flex>
 
-          <Flex maxW="700px" mt={4} pt={8} pb={8} w="100%" bg="barberHub.300" direction="column" align="center" justify="center">
+          <Flex maxW="700px" mt={4} pt={8} pb={8} w="100%" direction="column" align="center" justify="center" bg="gray.900" rounded={8}>
             <Flex w="85%" direction="column">
               <Input
                 w="100%"
-                background="barberHub.400"
-                size="lg"
                 placeholder="Nome do corte"
                 type="text"
                 mb={6}
                 p={1}
-                borderColor="#68441F"
+                bg="gray.700"
+                border={0}
+                _focus={{
+                  bg: 'gray.600',
+                  borderColor: 'blue.300',
+                }}
                 disabled={subscription?.status !== "active"}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
               <Input
                 w="100%"
-                background="barberHub.400"
-                size="lg"
                 placeholder="Valor do corte"
                 type="number"
                 mb={6}
                 p={1}
-                borderColor="#68441F"
+                bg="gray.700"
+                border={0}
+                _focus={{
+                  bg: 'gray.600',
+                  borderColor: 'blue.300',
+                }}
                 disabled={subscription?.status !== "active"}
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
@@ -134,12 +139,11 @@ export default function EditHaircuts({ haircut, subscription }: EditeHaircutProp
                 />
               </Stack>
               <Button
-                color="gray.700"
+                color="white"
                 size="md"
                 w="100%"
                 mt={4}
                 mb={4}
-                _hover={{ bg: "button.hover" }}
                 disabled={subscription?.status !== "active"}
                 onClick={handleUpdate}
               >

@@ -5,3 +5,4 @@ npm install react-icons
 npm install @stripe/stripe-js
 npm i @chakra-ui/icons
 npm install swiper
+npm install llucide-react

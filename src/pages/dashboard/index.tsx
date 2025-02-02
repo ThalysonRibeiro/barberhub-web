@@ -74,9 +74,8 @@ export default function Dashboard({ schedule }: DashboardProps) {
             <Heading fontSize={isMobile ? "28px" : "3xl"} mt={4} mb={4} mr={4}>Agenda de clientes</Heading>
             <Link href="/new">
               <Button
-                color="gray.700"
+                color="white"
                 size="sm"
-                _hover={{ bg: "button.hover" }}
               >
                 Registrar
               </Button>
@@ -100,16 +99,16 @@ export default function Dashboard({ schedule }: DashboardProps) {
                 p={4}
                 rounded={4}
                 mb={4}
-                bg="barberHub.300"
+                bg="gray.700"
                 justify="space-between"
                 align={isMobile ? "flex-start" : "center"}
               >
                 <Flex direction="row" mb={isMobile ? 2 : 0} align="center" justify="center">
-                  <IoMdPerson size={28} color="#C6A05B" />
+                  <IoMdPerson size={28} color="#4299e1" />
                   <Text fontWeight="bold" textTransform="capitalize" ml={4} noOfLines={1}>{item?.customer}</Text>
                 </Flex>
                 <Text fontWeight="bold" textTransform="capitalize">{item?.haircut?.name}</Text>
-                <Text fontWeight="bold" color="#C6A05B">R$ {item?.haircut.price}</Text>
+                <Text fontWeight="bold" color="#46ef75">R$ {item?.haircut.price}</Text>
 
               </Flex>
             </ChakraLink>

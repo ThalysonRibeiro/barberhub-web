@@ -51,12 +51,11 @@ export default function New({ subscription, count }: NewHaircutProps) {
           >
             <Link href="/haircurts">
               <Button
-                color="gray.700"
+                color="white"
                 size="sm"
                 mr={4}
-                _hover={{ bg: "button.hover" }}
               >
-                <FiChevronLeft size={20} color="#374151" />  Voltar
+                <FiChevronLeft size={20} color="#fff" />  Voltar
               </Button>
             </Link>
             <Heading fontSize={isMobile ? "28px" : "3xl"} mt={4} mb={4} mr={4}>Cadastrar novo modelos de corte</Heading>
@@ -64,44 +63,49 @@ export default function New({ subscription, count }: NewHaircutProps) {
 
           <Flex
             maxW="700px"
-            bg="barberHub.300"
+            bg="gray.900"
+            rounded={8}
             w="100%"
+            direction="column"
             align="center"
             justify="center"
             pt={8}
             pb={8}
-            direction="column"
           >
             <Input
               w="85%"
-              background="barberHub.400"
-              size="lg"
               placeholder="Nome do corte"
               type="text"
               mb={6}
               p={1}
-              borderColor="#68441F"
+              bg="gray.700"
+              border={0}
+              _focus={{
+                bg: 'gray.600',
+                borderColor: 'blue.300',
+              }}
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
             <Input
               w="85%"
-              background="barberHub.400"
-              size="lg"
               placeholder="Valor do corte"
               type="number"
               mb={6}
               p={1}
-              borderColor="#68441F"
+              bg="gray.700"
+              border={0}
+              _focus={{
+                bg: 'gray.600',
+                borderColor: 'blue.300',
+              }}
               value={price}
               onChange={(e) => setPrice(e.target.value)}
             />
             <Button
               w="85%"
-              color="gray.700"
-              size="md"
+              color="white"
               mb={4}
-              _hover={{ bg: "button.hover" }}
               disabled={!subscription && count >= 3}
               onClick={handleRegister}
             >

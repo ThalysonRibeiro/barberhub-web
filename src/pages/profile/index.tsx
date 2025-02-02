@@ -54,46 +54,52 @@ export default function Profile({ user, premium }: ProfileProps) {
             <Heading fontSize="3xl" mt={1} mb={4} mr={4}>Minha conta</Heading>
           </Flex>
 
-          <Flex pt={8} background="barberHub.300" maxW="700px" w="100%" direction="column" alignItems="center" justifyContent="center">
+          <Flex pt={8} background="gray.900" rounded={8} maxW="700px" w="100%" direction="column" alignItems="center" justifyContent="center">
             <Flex direction="column" w="85%">
               <Text mb={2} fontSize="xl" fontWeight="bold" color="white">Nome da Barbearia:</Text>
               <Input
                 w="100%"
-                background="barberHub.400"
-                size="lg"
                 placeholder="Senha"
                 type="text"
                 mb={6}
                 p={1}
-                borderColor="#68441F"
+                bg="gray.700"
+                border={0}
+                _focus={{
+                  bg: 'gray.600',
+                  borderColor: 'blue.300',
+                }}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
               <Text mb={2} fontSize="xl" fontWeight="bold" color="white">Endereço da Barbearia:</Text>
               <Input
                 w="100%"
-                background="barberHub.400"
-                size="lg"
                 placeholder="Endereço"
                 type="text"
                 mb={6}
                 p={1}
-                borderColor="#68441F"
+                bg="gray.700"
+                border={0}
+                _focus={{
+                  bg: 'gray.600',
+                  borderColor: 'blue.300',
+                }}
                 value={endereco}
                 onChange={(e) => setEndereco(e.target.value)}
               />
               <Flex
                 direction="row"
                 w="100&"
-                mb={3}
+                mb={6}
                 p={1}
                 borderWidth={1}
-                borderColor="#68441F"
+                borderColor="#4299E1"
                 rounded={6}
                 alignItems="center"
                 justifyContent="space-between"
               >
-                <Text p={2} fontSize="lg" color={premium ? "#C6A05B" : "#4dffb4"}>
+                <Text p={2} fontSize="lg" color={premium ? "#fff" : "#4dffb4"}>
                   {premium ? "Plano Premium" : "Plano grátis"}
                 </Text>
                 <Link href="/planos">
@@ -111,9 +117,7 @@ export default function Profile({ user, premium }: ProfileProps) {
               </Flex>
               <Button
                 mb={6}
-                color="gray.700"
-                size="lg"
-                _hover={{ bg: "button.hover" }}
+                color="white"
                 onClick={handleUpdateUser}
               >
                 Salvar
@@ -121,10 +125,9 @@ export default function Profile({ user, premium }: ProfileProps) {
               <Button
                 background="transparent"
                 borderWidth={1}
-                borderColor="danger.900"
+                borderColor="red.600"
                 mb={6}
-                color="danger.900"
-                size="lg"
+                color="red.600"
                 _hover={{ bg: "transparent" }}
                 onClick={handleLogout}
               >

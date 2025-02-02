@@ -44,20 +44,19 @@ export default function Espera({ schedule: initialSchedule, }: DashboardProps) {
       <Head>
         <title>BarberHub - Dashboard</title>
       </Head>
-      <Flex bg="barberHub.900" h="6vh" alignItems="center">
+      <Flex h="6vh" alignItems="center">
         <Link href="/dashboard">
           <Button
-            color="gray.700"
+            color="white"
             size="sm"
             ml={4}
-            _hover={{ bg: "button.hover" }}
           >
             Dashboard
           </Button>
         </Link>
-        {isLoading && <Spinner color='#00cd52' ml={4} />}
+        {isLoading && <Spinner color='#4299e1' ml={4} />}
       </Flex>
-      <Flex direction="column" alignItems="center" justifyContent="flex-start" bg="barberHub.900" h="94vh" p={4}>
+      <Flex direction="column" alignItems="center" justifyContent="flex-start" h="94vh" p={4}>
         <Flex
           direction={isMobile ? "column" : "row"}
           w="100%"
@@ -85,16 +84,16 @@ export default function Espera({ schedule: initialSchedule, }: DashboardProps) {
                 p={4}
                 rounded={4}
                 mb={4}
-                bg="barberHub.300"
+                bg="gray.700"
                 justify="space-between"
                 align={isMobile ? "flex-start" : "center"}
               >
                 <Flex direction="row" mb={isMobile ? 2 : 0} align="center" justify="center">
-                  <IoMdPerson size={28} color="#C6A05B" />
+                  <IoMdPerson size={28} color="#4299e1" />
                   <Text fontWeight="bold" textTransform="capitalize" ml={4} noOfLines={1}>{item?.customer}</Text>
                 </Flex>
                 <Text fontWeight="bold" textTransform="capitalize">{item?.haircut?.name}</Text>
-                <Text fontWeight="bold" color="#C6A05B">R$ {item?.haircut.price}</Text>
+                <Text fontWeight="bold" color="#46ef75">R$ {item?.haircut.price}</Text>
               </Flex>
             </ChakraLink>
           ))}

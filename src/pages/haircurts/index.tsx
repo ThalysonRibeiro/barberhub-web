@@ -65,9 +65,8 @@ export default function Haircurts({ haircuts }: HaircutsProps) {
 
             <Link href="/haircurts/new">
               <Button
-                color="gray.700"
+                color="white"
                 size="sm"
-                _hover={{ bg: "button.hover" }}
               >
                 Cadastrar novo
               </Button>
@@ -98,8 +97,8 @@ export default function Haircurts({ haircuts }: HaircutsProps) {
                 cursor="pointer"
                 w="100%"
                 p={4}
-                bg={disableHaircut === "enabled" ? "barberHub.300" : "transparent"}
-                border={disableHaircut === "enabled" ? "none" : "1px dashed #754D24"}
+                bg={disableHaircut === "enabled" ? "gray.700" : "transparent"}
+                border={disableHaircut === "enabled" ? "none" : "1px dashed #2c5282"}
                 direction={isMobile ? "column" : "row"}
                 align={isMobile ? "flex-start" : "center"}
                 rounded="4"
@@ -107,13 +106,13 @@ export default function Haircurts({ haircuts }: HaircutsProps) {
                 justifyContent="space-between"
               >
                 <Flex mb={isMobile ? 2 : 0} direction="row" alignItems="center" justifyContent="center">
-                  <IoMdPricetag size={28} color="#C6A05B" />
+                  <IoMdPricetag size={28} color="#4299e1" />
                   <Text ml={4} noOfLines={1}>
                     {haircut.name}
                   </Text>
                 </Flex>
 
-                <Text color="#C6A05B" fontWeight="bold">R$ {haircut.price}</Text>
+                <Text color="#46ef75" fontWeight="bold">R$ {haircut.price}</Text>
               </Flex>
 
             </Link>

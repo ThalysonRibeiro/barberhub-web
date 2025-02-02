@@ -38,7 +38,7 @@ const Home: NextPage = () => {
   return (
     <Box minH="100vh" bg="gray.900">
       {/* Hero Section */}
-      <Box bgGradient="linear(to-r, blue.900, purple.900)" color="white">
+      <Box bgGradient="linear(to-r, gray.900, blue.900)" color="white">
         <Container maxW="container.xl" px={6}>
           <Flex py={4} justify="space-between" align="center">
             <HStack spacing={2}>
@@ -84,7 +84,8 @@ const Home: NextPage = () => {
               Gerencie sua barbearia com excelência
             </Heading>
             <Text fontSize="xl" color="whiteAlpha.800" maxW="2xl">
-              Sistema completo para agendamentos, gestão de clientes da sua barbearia
+              Sistema completo de gestão para barbearias modernas.
+              Simplifique seu trabalho e ofereça uma experiência única aos seus clientes.
             </Text>
             <Button size="lg" colorScheme="blue">
               Experimente Grátis
@@ -196,7 +197,7 @@ const Home: NextPage = () => {
       </Box>
 
       {/* Footer */}
-      <Box bg="blue.900" color="white" py={12}>
+      <Box bg="gray.900" color="white" py={12}>
         <Container maxW="container.xl" px={6}>
           <Stack
             direction={{ base: 'column', md: 'row' }}
@@ -211,7 +212,7 @@ const Home: NextPage = () => {
               </Text>
             </HStack>
             <HStack spacing={6}>
-              <Link href="#" target='_blank' _hover={{ color: 'blue.300' }}>
+              <Link href="/sobre" target='_blank' _hover={{ color: 'blue.300' }}>
                 Sobre
               </Link>
               <Link href="https://wa.me/65981278291?text=Oi! Deixe sua mensagem que respondo assim que pude" target='_blank' _hover={{ color: 'blue.300' }}>

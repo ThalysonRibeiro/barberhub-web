@@ -25,22 +25,22 @@ interface ModalINfoProps {
 export function ModalInfo({ isOpen, onOpen, onClose, data, finishService }: ModalINfoProps) {
   return (
     <>
-      <Button onClick={onOpen}>Open Modal</Button>
 
       <Modal isOpen={isOpen} onClose={onClose}>
+        <Button onClick={onOpen}>Open Modal</Button>
         <ModalOverlay />
-        <ModalContent bg="barberHub.400">
+        <ModalContent bg="gray.700">
           <ModalHeader>Próximo</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <Flex align="center" mb={3}>
-              <FiUser size={28} color="#C6A05B" />
+              <FiUser size={28} color="#4299e1" />
               <Text ml={3} fontSize="2xl" fontWeight="bold" color="white">
                 {data?.customer}
               </Text>
             </Flex>
             <Flex align="center" mb={3}>
-              <FiScissors size={28} color="#C6A05B" />
+              <FiScissors size={28} color="#4299e1" />
               <Text ml={3} fontSize="large" fontWeight="bold" color="white">
                 {data?.haircut?.name}
               </Text>
@@ -55,9 +55,8 @@ export function ModalInfo({ isOpen, onOpen, onClose, data, finishService }: Moda
 
           <ModalFooter>
             <Button
-              color="gray.700"
+              color="white"
               size="md"
-              _hover={{ bg: "button.hover" }}
               onClick={() => finishService()}
             >Finalizar serviço</Button>
           </ModalFooter>

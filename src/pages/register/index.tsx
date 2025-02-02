@@ -1,10 +1,25 @@
-import { Button, Center, Checkbox, Flex, FormControl, IconButton, Input, InputGroup, InputRightElement, Stack, Text, Link as ChakraLink, useToast, Heading, Box } from "@chakra-ui/react";
+import {
+  Button,
+  Center,
+  Checkbox,
+  Flex,
+  FormControl,
+  IconButton,
+  Input,
+  InputGroup,
+  InputRightElement,
+  Stack,
+  Text,
+  Link as ChakraLink,
+  useToast,
+  Heading,
+} from "@chakra-ui/react";
 import Head from "next/head";
 import Link from "next/link";
 import { useContext, useState } from "react";
 import { AuthContext } from "@/context/AuthContext";
 import { canSSRGuest } from "@/utils/canSSRGuest";
-import { Eye, EyeOff, Scissors } from "lucide-react";
+import { Eye, EyeOff } from "lucide-react";
 
 export default function Register() {
   const { signUp } = useContext(AuthContext);
@@ -69,9 +84,7 @@ export default function Register() {
               <Heading size="2xl">Barber</Heading>
               <Heading size="2xl" color="blue.400">PRO</Heading>
             </Flex>
-            <Box color="blue.400" mb={3}>
-              <Scissors size={40} />
-            </Box>
+
             <Stack spacing={2} textAlign="center">
               <Heading size="lg">Crie sua conta</Heading>
               <Text color="whiteAlpha.800">

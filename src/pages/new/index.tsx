@@ -75,34 +75,43 @@ export default function New({ haircuts }: NewProps) {
             direction="column"
             align="center"
             justify="center"
-            bg="barberHub.300"
+            bg="gray.900"
+            rounded={8}
           >
             <Input
               w="85%"
-              background="barberHub.400"
-              size="lg"
               placeholder="Nome do cliente"
               type="text"
               mb={6}
               p={1}
-              borderColor="#68441F"
+              bg="gray.700"
+              border={0}
+              _focus={{
+                bg: 'gray.600',
+                borderColor: 'blue.300',
+              }}
               value={customer}
               onChange={(e: ChangeEvent<HTMLInputElement>) => setCustomer(e.target.value)}
             />
 
-            <Select mb={3} size="lg" w="85%" borderColor="#68441F" bg="barberHub.400" onChange={(e) => handleChangeSelect(e.target.value)}>
+            <Select mb={3} size="md" w="85%"
+              bg="gray.700"
+              border={0}
+              _focus={{
+                bg: 'gray.600',
+                borderColor: 'blue.300',
+              }}
+              onChange={(e) => handleChangeSelect(e.target.value)}>
               {haircuts?.map(item => (
-                <option style={{ background: "#1A1A1A" }} key={item?.id} value={item?.id}>{item?.name}</option>
+                <option style={{ background: "#4A5568" }} key={item?.id} value={item?.id}>{item?.name}</option>
               ))}
             </Select>
 
             <Button
-              color="gray.700"
-              size="md"
+              color="white"
               w="85%"
               mt={4}
               mb={4}
-              _hover={{ bg: "button.hover" }}
               onClick={handleRegister}
             >
               Salvar

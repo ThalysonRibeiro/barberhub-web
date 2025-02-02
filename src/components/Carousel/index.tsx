@@ -12,7 +12,7 @@ const testimonials = [
     name: 'João S.',
     image: '',
     text: 'Excelente ferramenta para minha barbearia!',
-    role: 'Proprietário da Barbearia X',
+    role: 'Proprietário da Barbearia Tradição & Estilo',
     star: 5,
   },
   {
@@ -26,14 +26,14 @@ const testimonials = [
     name: 'John B.',
     image: '',
     text: 'Excelente ferramenta!',
-    role: 'Proprietário da Barbearia Barber King',
+    role: 'Proprietário da Barbearia Cabeleira & Navalha',
     star: 5,
   },
   {
     name: 'Jhon C.',
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf01KkA7W5PuZxiU8_bAdM4jpq6ev6ACIvGg&s',
     text: 'Excelente ferramenta!',
-    role: 'Proprietário da Barbearia Barber King',
+    role: 'Proprietário da Barbearia O Rei da Tesoura',
     star: 4,
   },
 ];

@@ -10,14 +10,13 @@ import {
   Stack,
   Text,
   Heading,
-  Box
 } from "@chakra-ui/react";
 import Head from "next/head";
 import Link from "next/link";
 import { useContext, useState } from "react";
 import { AuthContext } from "@/context/AuthContext";
 import { canSSRGuest } from "@/utils/canSSRGuest";
-import { Eye, EyeOff, Scissors } from "lucide-react";
+import { Eye, EyeOff } from "lucide-react";
 
 export default function Login() {
   const { signin } = useContext(AuthContext);
@@ -53,56 +52,12 @@ export default function Login() {
               <Heading size="2xl">Barber</Heading>
               <Heading size="2xl" color="blue.400">PRO</Heading>
             </Flex>
-            <Box color="blue.400" mb={4}>
-              <Scissors size={40} />
-            </Box>
+
             <Heading size="lg">Bem-vindo de volta</Heading>
             <Text color="whiteAlpha.800">
               Entre na sua conta para gerenciar sua barbearia
             </Text>
           </Center>
-
-          {/* <Flex>
-            <Input
-              bg="gray.700"
-              border={0}
-              size="lg"
-              placeholder="Email"
-              type="email"
-              mb={3}
-              p={1}
-              _focus={{
-                bg: 'gray.600',
-                borderColor: 'blue.300',
-              }}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <Input
-              bg="gray.700"
-              border={0}
-              size="lg"
-              placeholder="Email"
-              type="email"
-              mb={3}
-              p={1}
-              _focus={{
-                bg: 'gray.600',
-                borderColor: 'blue.300',
-              }}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-             <Button
-              mb={6}
-              color="gray.700"
-              size="lg"
-              _hover={{ bg: "button.hover" }}
-              onClick={handleLoguin}
-            >
-              Acessar
-            </Button>
-          </Flex> */}
 
           <FormControl isRequired mb={4}>
             <Input
