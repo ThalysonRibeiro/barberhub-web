@@ -62,9 +62,14 @@ const Home: NextPage = () => {
 
             {!user ? (
               <>
-                <Link href="/register">
-                  <Button variant="outline">Começar Agora</Button>
-                </Link>
+                <Flex gap={4}>
+                  <Link href="/register">
+                    <Button variant="outline" size="sm">Começar Agora</Button>
+                  </Link>
+                  <Link href="/login">
+                    <Button variant="outline" size="sm">Entrar</Button>
+                  </Link>
+                </Flex>
               </>
             ) : (
               <Flex gap={6} >
