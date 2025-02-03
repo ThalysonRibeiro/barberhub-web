@@ -120,7 +120,7 @@ const Home: NextPage = () => {
               />
               <FeatureCard
                 icon={PiScissorsLight}
-                title="Cadastro de Dodelos"
+                title="Cadastro de Modelos"
                 description="Modelos de corte, Adicione, Gerencie"
               />
             </Grid>
