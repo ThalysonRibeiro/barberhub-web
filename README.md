@@ -1,40 +1,111 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# BarberPro 💈
 
-## Getting Started
+## Descrição do Projeto
 
-First, run the development server:
+BarberHub é um sistema web completo para gerenciamento de barbearias, oferecendo funcionalidades abrangentes para administração de clientes, serviços e planos.
 
+## 🚀 Funcionalidades Principais
+
+- **Gestão de Clientes**
+  - Cadastro e gerenciamento de clientes
+  - Histórico de serviços realizados
+  - Controle de fidelização
+
+- **Tipos de Corte**
+  - Adicionar novos tipos de corte
+  - Editar detalhes dos serviços
+  - Ativar/desativar serviços
+
+- **Fila de Espera**
+  - Sistema integrado de agendamento
+  - Controle de ordem de atendimento
+  - Notificações para clientes
+
+- **Planos e Benefícios**
+  - Criação de planos personalizados
+  - Benefícios exclusivos para assinantes
+  - Integração com sistema de pagamento
+
+## 🛠️ Tecnologias Utilizadas
+
+- **Frontend**
+  - Next.js 15
+  - React 19
+  - Chakra UI
+  - Framer Motion
+  - TypeScript
+
+- **Autenticação**
+  - JWT (jwt-decode)
+  - Nookies para gerenciamento de cookies
+
+- **Integração e Utilitários**
+  - Axios para requisições HTTP
+  - Stripe.js para pagamentos
+  - React Icons
+  - Swiper para componentes de slider
+
+## 📦 Instalação
+
+### Pré-requisitos
+- Node.js (versão 20+)
+- npm ou yarn
+
+### Passos para Instalação
+
+1. Clone o repositório
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/seu-usuario/barberhub.git
+cd barberhub
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Instale as dependências
+```bash
+npm install
+# ou
+yarn install
+```
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+3. Configure as variáveis de ambiente
+- Crie um arquivo `.env.local`
+- Adicione suas variáveis de configuração
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+4. Inicie o servidor de desenvolvimento
+```bash
+npm run dev
+# ou
+yarn dev
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## 🔐 Variáveis de Ambiente
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Configure as seguintes variáveis no seu `.env.local`:
+- `NEXT_PUBLIC_API_URL`: URL da API backend
+- `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`: Chave pública do Stripe
+- Outras variáveis específicas do seu projeto
 
-## Learn More
+## 🚀 Deploy
 
-To learn more about Next.js, take a look at the following resources:
+O projeto está configurado para deploy fácil em plataformas como Vercel:
+```bash
+npm run build
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+## 🤝 Contribuições
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Faça um fork do projeto
+2. Crie sua feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
 
-## Deploy on Vercel
+## 📄 Licença
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+## 📞 Contato
+
+Seu Nome - seu-email@exemplo.com
+
+Link do Projeto: [https://github.com/seu-usuario/barberhub](https://github.com/seu-usuario/barberhub)
