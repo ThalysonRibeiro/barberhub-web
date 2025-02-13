@@ -103,9 +103,3 @@ npm start
 ## 📄 Licença
 
 Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
-
-## 📞 Contato
-
-Seu Nome - seu-email@exemplo.com
-
-Link do Projeto: [https://github.com/seu-usuario/barberhub](https://github.com/seu-usuario/barberhub)
